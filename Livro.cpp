@@ -25,6 +25,13 @@ int Livro::loadMatrix(char atual){
     return 0;
 }
 
+int Livro::loadMatrix2(char anterior,char atual){
+    if(charMap.find(make_pair(atual,anterior))!=charMap.end()){
+        charMap[make_pair(atual,anterior)]++;
+    }else charMap[make_pair(atual,anterior)]=1;
+    return 0;
+}
+
 void Livro::computeProbabilities() {
     map<char,int>:: iterator it;
     for (it = quantityChar.begin(); it != quantityChar.end(); it++) {
@@ -42,7 +49,6 @@ void Livro::computeConditionalProbabilities() {
             char atual = it2->first;
             if (charMap.find(make_pair(atual, anterior)) != charMap.end())
                 conditionalProbabilities[make_pair(atual, anterior)] = charMap[make_pair(atual, anterior)]/(1.0*quantityChar[anterior]);
-                cout << charMap[make_pair(atual,anterior)] << endl;
         }
     }
 }
@@ -51,7 +57,7 @@ void Livro::computeConditionalEntropy() {
     map<char, int>::iterator it;
     map<char, int>::iterator it2;
     computeConditionalProbabilities();
-    int sum = 0;
+    double sum = 0;
     for (it = quantityChar.begin(); it != quantityChar.end(); it++) {
         char anterior = it->first;
         for (it2 = quantityChar.begin(); it2 != quantityChar.end(); it2++) {
@@ -97,33 +103,58 @@ void Livro::printMatrix1(){
         cout<<It->first<<": "<<It->second<<endl;
     }
 }
+void Livro::printMatrix2(){
+    map<pair<char, char>, int>::iterator It;
+    for(It=charMap.begin();It!=charMap.end();It++){
+        cout<<It->first.first<<","<<It->first.second<<": "<<It->second<<endl;
+    }
+}
 
 
 void Livro::readBook(){
     ifstream myfile;
     char atual;
+    char anterior=' ';
     myfile.open (bookPath);
     if (myfile.is_open()){
         while (myfile.get(atual)){
             //cout<<atual;
             loadMatrix(atual);
+            loadMatrix2(anterior,atual);
+            anterior=atual;
             totalChars++;
         }
         cout<<endl;
         myfile.close();
     }
     else cout << "Unable to open file";
-    
-    printMatrix1();
+    cout<<"======[ "<<bookPath<<" ]======"<<endl;
+    cout<<"Caracteres: "<<quantityChar.size()<<" / ";
+    cout<<"Combinações: "<<charMap.size()<<endl;
+    computeEntropy();
+    cout <<"Entropia: "<< entropy << endl;
+    computeConditionalEntropy();
+    cout << "Entropia Condicional: " << conditionalEntropy << endl;
+ 
 }
 
 int main() {
-    Livro livro1 = Livro("darwin-french.txt");
+    Livro livro1 = Livro("hamlet-english.txt");
+    Livro livro2 = Livro("hamlet-french.txt");
+    Livro livro3 = Livro("hamlet-esperanto.txt");
+    Livro livro4 = Livro("hamlet-finish.txt");
+    Livro livro5 = Livro("hamlet-german.txt");
+    Livro livro6 = Livro("hamlet-greek.txt");
+    Livro livro7 = Livro("hamlet-portugues-arcaico.txt");
     livro1.readBook();
-    livro1.computeEntropy();
-    livro1.computeConditionalEntropy();
-    cout << livro1.entropy << endl;
-    cout << livro1.conditionalEntropy << endl;
-    cout << "Hello World!" << std::endl;
+    livro2.readBook();
+    livro3.readBook();
+    livro4.readBook();
+    livro5.readBook();
+    livro6.readBook();
+    livro7.readBook();
+    //livro1.computeEntropy();
+    //cout << livro1.entropy << endl;
+
 
 }

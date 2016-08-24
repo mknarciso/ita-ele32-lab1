@@ -23,7 +23,9 @@ class Livro
         void computeEntropy();
         void computeConditionalEntropy();
         void printMatrix1();
+        void printMatrix2();
         int loadMatrix(char atual);
+        int loadMatrix2(char anterior, char atual);
         void computeEficiency();
         void computePrevisibility();
         void computeInfoNextChar();
