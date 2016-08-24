@@ -13,10 +13,12 @@ class Livro
         virtual ~Livro();
         map<pair<char, char>, int> charMap;
         map <char, int> quantityChar;
-        map <char, int> entropies;
+        map<char, double> probabilities;
+        double entropy;
+        int totalChars;
         string bookPath;
         void readBook();
-        void computeEntropies();
+        void computeEntropy();
         void printMatrix1();
         void printMatrix2();
         int loadMatrix(char atual);
@@ -24,6 +26,9 @@ class Livro
         void computeEficiency();
         void computePrevisibility();
         void computeInfoNextChar();
+        void computeProbabilities();
+
+        
 
 
 
