@@ -1,12 +1,14 @@
 #include "Livro.h"
 #include <fstream>
 #include <iostream>
+#include <tgmath.h> 
 
 using namespace std;
 
 Livro::Livro(string bookPathName)
 {
     bookPath = bookPathName;
+    entropy = 0;
 }
 
 Livro::~Livro()
@@ -21,10 +23,15 @@ int Livro::loadMatrix(char atual){
     return 0;
 }
 
-void Livro::computeEntropies() {
-    
+void Livro::computeEntropy() {
+   
     map<char, int>::iterator it;
-    for (it = )
+    map<char, int> probabilities = computeProbabilities();
+    for (it = quantityChar.begin(); it != quantityChar.end(); it ++) {
+        char actual = it->first;
+        entropy -= probabilities[actual]*log2(probabilities[actual]);
+
+    }
     
     
 }
@@ -68,5 +75,6 @@ void Livro::readBook(){
 int main() {
     Livro livro1 = Livro("teste.txt");
     livro1.readBook();
+    cout << livro1.computeEntropy(); << endl;
     cout << "Hello World!" << std::endl;
 }
