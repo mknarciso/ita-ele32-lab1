@@ -15,9 +15,9 @@ Livro::~Livro()
 }
 
 int Livro::loadMatrix(char atual){
-    if(quantityChar.find(atual)!=quantityChar.end())
+    if(quantityChar.find(atual)!=quantityChar.end()){
         quantityChar[atual]++;
-    else quantityChar[atual]=1;
+    }else quantityChar[atual]=1;
     return 0;
 }
 
@@ -41,12 +41,12 @@ void Livro::readBook(){
         cout<<endl;
         myfile.close();
     }
-    printMatrix1();
     else cout << "Unable to open file";
+    
+    printMatrix1();
 }
 
 int main() {
     Livro livro1 = Livro("teste.txt");
     livro1.readBook();
-    cout << "Hello World!" << std::endl;
 }
