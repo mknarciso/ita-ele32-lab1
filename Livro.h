@@ -11,12 +11,15 @@ class Livro
     public:
         Livro(string bookPath);
         virtual ~Livro();
-        map<pair<char, char>, int> previousChar;
+        map<pair<char, char>, int> charMap;
         map <char, int> quantityChar;
         map <char, int> entropies;
         string bookPath;
         void readBook();
         void computeEntropies();
+        void printMatrix1();
+        int loadMatrix(char atual);
+        void readBook ();
         void computeEficiency();
         void computePrevisibility();
         void computeInfoNextChar();
