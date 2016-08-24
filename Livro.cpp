@@ -18,3 +18,23 @@ string Livro::readBook(string file){
     myfile.close();
     return 0;
 }
+
+void Livro::computeEntropies() {
+    
+    map<char, int>::iterator it;
+    for (it = )
+    
+    
+}
+void Livro::computeEficiency() {
+    
+}
+
+void Livro::computePrevisibility() {
+    
+}
+
+void Livro::computeInfoNextChar() {
+    
+}
+

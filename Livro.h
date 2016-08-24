@@ -13,8 +13,10 @@ class Livro
         virtual ~Livro();
         map<pair<char, char>, int> previousChar;
         map <char, int> quantityChar;
+        map <char, int> entropies;
         string bookPath;
-        void readBook ();
+        void readBook();
+        void computeEntropies();
         void computeEficiency();
         void computePrevisibility();
         void computeInfoNextChar();
