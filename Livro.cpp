@@ -21,6 +21,26 @@ int Livro::loadMatrix(char atual){
     return 0;
 }
 
+void Livro::computeEntropies() {
+    
+    map<char, int>::iterator it;
+    for (it = )
+    
+    
+}
+void Livro::computeEficiency() {
+    
+}
+
+void Livro::computePrevisibility() {
+    
+}
+
+void Livro::computeInfoNextChar() {
+    
+}
+
+
 void Livro::printMatrix1(){
     map<char,int>::iterator It;
     for(It=quantityChar.begin();It!=quantityChar.end();It++){
