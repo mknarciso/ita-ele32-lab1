@@ -97,8 +97,10 @@ void Livro::readBook(){
     }
     else cout << "Unable to open file";
     cout<<"======[ "<<bookPath<<" ]======"<<endl;
-    cout<<"Caracteres:"<<quantityChar.size()<<" / ";
-    cout<<"Combinações:"<<charMap.size();
+    cout<<"Caracteres: "<<quantityChar.size()<<" / ";
+    cout<<"Combinações: "<<charMap.size()<<endl;
+    computeEntropy();
+    cout <<"Entropia: "<< entropy << endl;
 }
 
 int main() {
@@ -116,8 +118,7 @@ int main() {
     livro5.readBook();
     livro6.readBook();
     livro7.readBook();
-    livro1.computeEntropy();
-    cout << livro1.entropy << endl;
-    cout << "Hello World!" << std::endl;
+    //livro1.computeEntropy();
+    //cout << livro1.entropy << endl;
 
 }
