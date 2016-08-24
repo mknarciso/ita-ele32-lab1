@@ -15,6 +15,9 @@ class Livro
         map <char, int> quantityChar;
         string bookPath;
         void readBook ();
+        void computeEficiency();
+        void computePrevisibility();
+        void computeInfoNextChar();
 
 
 
