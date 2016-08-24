@@ -1,5 +1,7 @@
 #include "Livro.h"
 
+#include <fstream>
+
 Livro::Livro(string bookPathName)
 {
     bookPath = bookPathName;
@@ -11,10 +13,15 @@ Livro::~Livro()
 }
 
 
-string Livro::readBook(string file){
-    ofstream myfile;
+void Livro::readBook(string file){
+    ifstream myfile;
+    char atual;
     myfile.open (fileName);
-    myfile << "Writing this to a file.\n";
-    myfile.close();
-    return 0;
+    if (myfile.is_open()){
+        while (myfile.get(atual)){
+            printf(%c,atual);
+        }
+        myfile.close();
+    }
+    else cout << "Unable to open file";
 }
