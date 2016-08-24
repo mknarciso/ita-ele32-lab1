@@ -1,8 +1,8 @@
 #include "Livro.h"
 
-Livro::Livro()
+Livro::Livro(string bookPathName)
 {
-    //ctor
+    bookPath = bookPathName;
 }
 
 Livro::~Livro()

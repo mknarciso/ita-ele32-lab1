@@ -1,6 +1,10 @@
 #ifndef LIVRO_H
 #define LIVRO_H
 
+#include <map>
+#include <algorithm>
+
+using namespace std;
 
 class Livro
 {
