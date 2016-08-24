@@ -19,7 +19,6 @@ class Livro
         void computeEntropies();
         void printMatrix1();
         int loadMatrix(char atual);
-        void readBook ();
         void computeEficiency();
         void computePrevisibility();
         void computeInfoNextChar();

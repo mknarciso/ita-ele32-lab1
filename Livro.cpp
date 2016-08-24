@@ -21,13 +21,6 @@ int Livro::loadMatrix(char atual){
     return 0;
 }
 
-void Livro::computeEntropies() {
-    
-    map<char, int>::iterator it;
-    for (it = )
-    
-    
-}
 void Livro::computeEficiency() {
     
 }
@@ -67,6 +60,6 @@ void Livro::readBook(){
 }
 
 int main() {
-    Livro livro1 = Livro("teste.txt");
+    Livro livro1 = Livro("darwin-french.txt");
     livro1.readBook();
 }
