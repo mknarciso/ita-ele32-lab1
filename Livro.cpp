@@ -9,6 +9,7 @@ Livro::Livro(string bookPathName)
 {
     bookPath = bookPathName;
     entropy = 0;
+    totalChars = 0;
 }
 
 Livro::~Livro()
@@ -17,16 +18,24 @@ Livro::~Livro()
 }
 
 int Livro::loadMatrix(char atual){
-    if(quantityChar.find(atual)!=quantityChar.end())
+    if(quantityChar.find(atual)!=quantityChar.end()){
         quantityChar[atual]++;
-    else quantityChar[atual]=1;
+    }else quantityChar[atual]=1;
     return 0;
+}
+
+void Livro::computeProbabilities() {
+    map<char,int>:: iterator it;
+    for (it = quantityChar.begin(); it != quantityChar.end(); it++) {
+        char actual = it->first;
+        probabilities[actual] = quantityChar[actual]/(1.0*totalChars);
+    }
 }
 
 void Livro::computeEntropy() {
    
     map<char, int>::iterator it;
-    map<char, int> probabilities = computeProbabilities();
+    computeProbabilities();
     for (it = quantityChar.begin(); it != quantityChar.end(); it ++) {
         char actual = it->first;
         entropy -= probabilities[actual]*log2(probabilities[actual]);
@@ -35,6 +44,7 @@ void Livro::computeEntropy() {
     
     
 }
+
 void Livro::computeEficiency() {
     
 }
@@ -64,17 +74,21 @@ void Livro::readBook(){
         while (myfile.get(atual)){
             //cout<<atual;
             loadMatrix(atual);
+            totalChars++;
         }
         cout<<endl;
         myfile.close();
     }
-    printMatrix1();
     else cout << "Unable to open file";
+    
+    printMatrix1();
 }
 
 int main() {
-    Livro livro1 = Livro("teste.txt");
+    Livro livro1 = Livro("darwin-french.txt");
     livro1.readBook();
-    cout << livro1.computeEntropy(); << endl;
+    livro1.computeEntropy();
+    cout << livro1.entropy << endl;
     cout << "Hello World!" << std::endl;
+
 }
