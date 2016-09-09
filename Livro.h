@@ -31,7 +31,7 @@ class Livro
         void computeInfoNextChar();
         void computeProbabilities();
         void computeConditionalProbabilities();
-
+        double computeMutualInfo();
         
 
 

@@ -138,6 +138,10 @@ void Livro::readBook(){
  
 }
 
+void Livro::computeMutualInfo() {
+    return entropy - conditionalEntropy;
+}
+
 int main() {
     Livro livro1 = Livro("hamlet-english.txt");
     Livro livro2 = Livro("hamlet-french.txt");
