@@ -141,11 +141,14 @@ void Livro::readBook(){
 int main() {
     Livro livro1 = Livro("hamlet-english.txt");
     Livro livro2 = Livro("hamlet-french.txt");
-    Livro livro3 = Livro("hamlet-esperanto.txt");
-    Livro livro4 = Livro("hamlet-finish.txt");
-    Livro livro5 = Livro("hamlet-german.txt");
-    Livro livro6 = Livro("hamlet-greek.txt");
-    Livro livro7 = Livro("hamlet-portugues-arcaico.txt");
+    Livro livro3 = Livro("hamlet-finnish.txt");
+    Livro livro4 = Livro("hamlet-greek.txt");
+    Livro livro5 = Livro("hamlet-portugues.txt");
+    Livro livro6 = Livro("iliad-english.txt");
+    Livro livro7 = Livro("iliad-french.txt");
+    Livro livro8 = Livro("iliad-finnish.txt");
+    Livro livro9 = Livro("iliad-greek.txt");
+    Livro livro10 = Livro("iliad-portugues.txt");   
     livro1.readBook();
     livro2.readBook();
     livro3.readBook();
@@ -153,6 +156,9 @@ int main() {
     livro5.readBook();
     livro6.readBook();
     livro7.readBook();
+    livro8.readBook();
+    livro9.readBook();
+    livro10.readBook();
     //livro1.computeEntropy();
     //cout << livro1.entropy << endl;
 
