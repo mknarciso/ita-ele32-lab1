@@ -135,10 +135,12 @@ void Livro::readBook(){
     cout <<"Entropia: "<< entropy << endl;
     computeConditionalEntropy();
     cout << "Entropia Condicional: " << conditionalEntropy << endl;
+    cout << "Char Count: " << totalChars << endl;
+    printMatrix2();
  
 }
 
-void Livro::computeMutualInfo() {
+double Livro::computeMutualInfo() {
     return entropy - conditionalEntropy;
 }
 
@@ -153,7 +155,13 @@ int main() {
     Livro livro8 = Livro("iliad-finnish.txt");
     Livro livro9 = Livro("iliad-greek.txt");
     Livro livro10 = Livro("iliad-portugues.txt");   
-    livro1.readBook();
+    Livro livro11 = Livro("annakarenina-english.txt");
+    Livro livro12 = Livro("annakarenina-french.txt");
+    Livro livro13 = Livro("annakarenina-finnish.txt");
+    Livro livro14 = Livro("annakarenina-greek.txt");
+    Livro livro15 = Livro("annakarenina-portugues.txt");   
+    livro15.readBook();
+    /*livro1.readBook();
     livro2.readBook();
     livro3.readBook();
     livro4.readBook();
@@ -163,6 +171,11 @@ int main() {
     livro8.readBook();
     livro9.readBook();
     livro10.readBook();
+    livro11.readBook();
+    livro12.readBook();
+    livro13.readBook();
+    livro14.readBook();
+    livro15.readBook();*/
     //livro1.computeEntropy();
     //cout << livro1.entropy << endl;
 

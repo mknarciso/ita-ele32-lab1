@@ -17,7 +17,7 @@ class Livro
         map<char, double> probabilities;
         double entropy;
         double conditionalEntropy;
-        int totalChars;
+        unsigned int totalChars;
         string bookPath;
         void readBook();
         void computeEntropy();
